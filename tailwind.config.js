@@ -26,6 +26,11 @@ module.exports = {
       },
       red: "#E02025",
     },
+    dropShadow: {
+      extend: {
+        card: "0px 2px 10px rgba(0, 0, 0, 0.15)",
+      },
+    },
   },
   content: [`components/**/*.{vue,js}`, `layouts/**/*.vue`, `pages/**/*.vue`],
 };

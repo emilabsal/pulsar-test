@@ -1,11 +1,6 @@
 <template>
-  <div class="bg-gray-bg py-[38px] px-[30px] rounded-[16px]">
-    <ui-icon
-      :name="icon"
-      :width="iconWidth"
-      :height="iconHeight"
-      :fill="iconFill"
-    />
+  <div class="bg-gray-bg py-[38px] px-[30px] rounded-[16px] drop-shadow-card">
+    <ui-icon name="money" :fill="odd ? '#E02025' : '#0F4471'" />
     <span
       class="
         block
@@ -74,10 +69,10 @@
 <script>
 export default {
   props: {
-    icon: String,
-    iconWidth: [String, Number],
-    iconHeight: [String, Number],
-    iconFill: String,
+    odd: {
+      type: Boolean,
+      default: false,
+    },
     data: {
       CharCode: String,
       Name: String,

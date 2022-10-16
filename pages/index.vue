@@ -3,18 +3,11 @@
     <h1 class="text-blue mb-[40px] text-[34px] font-medium leading-[40px]">
       Валютный калькулятор
     </h1>
-    <div
-      class="
-        grid grid-cols-2
-        gap-x-[36px] gap-y-[41px]
-        content-start
-        items-start
-      "
-    >
-      <the-form />
-
+    <div class="flex items-start gap-[36px]">
+      <the-form class="basis-1/2" />
       <div
         class="
+          basis-1/2
           row-span-2
           px-[30px]
           py-[39px]
@@ -80,7 +73,6 @@
           </div>
         </div>
       </div>
-      <the-info text="Итого:" icon="info" />
     </div>
     <div
       class="

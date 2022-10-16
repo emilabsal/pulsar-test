@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 
+:root {
+  --color-blue: #0F4471;
+  --color-red: #E02025;
+}
+
 @layer base {
   * {
     margin: 0;
@@ -17,5 +22,11 @@
 
   .grid-cols-custom {
     grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }

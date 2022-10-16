@@ -11,6 +11,7 @@
       >{{ label }}</span
     >
     <input
+      @input="$emit('input-event', $event.target.value)"
       :type="type || 'text'"
       :placeholder="placeholder"
       class="
