@@ -3,8 +3,8 @@
     <h1 class="text-blue mb-[40px] text-[34px] font-medium leading-[40px]">
       Валютный калькулятор
     </h1>
-    <div class="flex items-start gap-[36px]">
-      <the-form class="basis-1/2" />
+    <div class="flex items-start gap-[36px] sm:flex-row flex-col">
+      <the-form class="sm:basis-1/2 basis-full w-full" />
       <div
         class="
           basis-1/2
@@ -28,27 +28,14 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor:
         </h2>
-        <div class="flex gap-[30px] items-start">
+        <div class="flex gap-[30px] items-start sm:flex-row flex-col">
           <ul class="pl-[20px]">
             <li
               class="
                 text-gray-list text-[18px]
                 leading-[20px]
                 mb-[30px]
-                relative
-                before:absolute
-                before:left-[-20px]
-                before:top-1/2
-                before:translate-y-[-50%]
-                before:content-['']
-                before:block
-                before:w-[10px]
-                before:h-[10px]
-                before:rounded-full
-                before:bg-transparent
-                before:border-2
-                before:border-solid
-                before:border-red
+                list-item
               "
               v-for="(item, index) in list"
               :key="index"
@@ -58,10 +45,14 @@
           </ul>
           <div
             class="
-              grid grid-cols-2
+              sm:grid
+              md:grid-cols-2
+              sm:grid-cols-1
               gap-x-[15px] gap-y-[9px]
               max-w-[307px]
-              w-full
+              sm:w-full
+              w-auto
+              flex
             "
           >
             <img
@@ -69,6 +60,13 @@
               :key="index"
               :src="require(`@/assets/img/windows/window${img}`)"
               alt="img"
+              class="
+                rounded-bl-[30px] rounded-tr-[30px]
+                md:rounded-none
+                sm:w-full
+                xs:w-[25%]
+                w-[20%]
+              "
             />
           </div>
         </div>
@@ -86,14 +84,34 @@
         items-center
         gap-[50px]
         mb-[136px]
+        md:flex-row
+        flex-col
       "
     >
-      <div>
-        <p class="text-blue text-[36px] leading-[46px] mb-[30px] font-medium">
+      <div class="max-w-[750px]">
+        <p
+          class="
+            text-blue
+            xs:text-[36px]
+            text-[30px]
+            leading-[46px]
+            mb-[20px]
+            font-medium
+            sm:text-left
+            text-center
+          "
+        >
           Нужна помощь?
           <span class="block">Мы поможем! Просто свяжитесь с нами.</span>
         </p>
-        <p class="text-gray-list text-[16px] leading-[24px]">
+        <p
+          class="
+            text-gray-list text-[16px]
+            leading-[24px]
+            sm:text-left
+            text-center
+          "
+        >
           Наши специалисты с радостью ответят на все ваши вопросы и дадут
           профессиональную консультацию по товарам.
         </p>
@@ -103,9 +121,10 @@
           class="
             text-blue
             font-medium
-            text-[50px]
+            xs:text-[50px]
             leading-[46px]
             whitespace-nowrap
+            text-[24px]
           "
           href="tel:88008889028"
           >8 (800) 888-90-28</a
@@ -114,7 +133,7 @@
           >или</span
         >
         <a
-          class="text-blue text-[34px] leading-[40px] mt-[10px]"
+          class="text-blue xs:text-[34px] leading-[40px] mt-[10px] text-[20px]"
           href="mailto:info@example.ru"
           >info@example.ru</a
         >

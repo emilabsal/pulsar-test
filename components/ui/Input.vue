@@ -11,10 +11,12 @@
       >{{ label }}</span
     >
     <input
+      :disabled="disabled"
       @input="$emit('input-event', $event.target.value)"
       :type="type || 'text'"
       :placeholder="placeholder"
       class="
+        font-main
         text-[14px]
         leading-[28px]
         text-blue
@@ -24,6 +26,7 @@
         border border-solid border-gray-border
         rounded-[5px]
         p-[20px]
+        focus:border-blue-light
       "
     />
   </label>
@@ -32,12 +35,13 @@
 <script>
 export default {
   props: {
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
     type: String,
     label: String,
     placeholder: String,
   },
 };
 </script>
-
-<style>
-</style>

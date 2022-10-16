@@ -1,18 +1,21 @@
 <template>
   <form>
     <ui-input
+      :disabled="disabled"
       @input-event="onCurrOne"
       class="mb-[31px]"
       label="Валюта 1"
-      placeholder="Введите название или код"
+      placeholder="Введите код"
     />
     <ui-input
+      :disabled="disabled"
       @input-event="onCurrTwo"
       class="mb-[31px]"
       label="Валюта 2"
-      placeholder="Введите название или код"
+      placeholder="Введите код"
     />
     <ui-input
+      :disabled="disabled"
       @input-event="onQuantity"
       class="mb-[31px]"
       label="Количество"
@@ -27,10 +30,10 @@
 export default {
   data() {
     return {
+      disabled: false,
       code1: "",
       code2: "",
       nominal: "",
-      api: "",
       curr1: "",
       curr1Value: "",
       curr2: "",
@@ -40,22 +43,27 @@ export default {
     };
   },
   async fetch() {
-    if (this.api === "") {
-      this.mountains = await this.$axios
-        .get("https://www.cbr-xml-daily.ru/daily_json.js")
-        .then((res) => {
-          this.api = res.data.Valute;
-          this.api = Object.values(this.api);
+    if (this.valute === "") {
+      this.disabled = true;
+      this.mountains = await this.$store
+        .dispatch("getValute")
+        .then(() => {
+          this.disabled = false;
         })
         .catch((e) => {
           console.log(e);
         });
     }
   },
+  computed: {
+    valute() {
+      return this.$store.state.valute;
+    },
+  },
   methods: {
     onCurrOne(value) {
       this.curr1 = value;
-      this.code1 = this.api.find(
+      this.code1 = this.valute.find(
         (el) => el.CharCode.toLowerCase() === this.curr1.toLowerCase()
       );
 
@@ -68,7 +76,7 @@ export default {
     },
     onCurrTwo(value) {
       this.curr2 = value;
-      this.code2 = this.api.find(
+      this.code2 = this.valute.find(
         (el) => el.CharCode.toLowerCase() === this.curr2.toLowerCase()
       );
 

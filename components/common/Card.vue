@@ -1,5 +1,15 @@
 <template>
-  <div class="bg-gray-bg py-[38px] px-[30px] rounded-[16px] drop-shadow-card">
+  <div
+    class="
+      bg-gray-background
+      lg:py-[38px] lg:px-[30px]
+      py-[30px]
+      px-[24px]
+      rounded-[16px]
+      hover:shadow-card
+      transition-shadow
+    "
+  >
     <ui-icon name="money" :fill="odd ? '#E02025' : '#0F4471'" />
     <span
       class="
@@ -7,62 +17,30 @@
         text-blue text-[20px]
         leading-[140%]
         font-bold
-        mb-[20px]
-        mt-[30px]
+        mb-[15px]
+        mt-[20px]
       "
       >{{ data.CharCode }}</span
     >
-    <p class="text-darkgray text-[16px] leading-[140%] mb-[35px]">
+    <p class="text-darkgray text-[16px] leading-[140%] mb-[20px]">
       {{ data.Name }}
     </p>
     <ul class="pl-[20px]">
       <li
         class="
-          text-black text-[16px]
+          text-list text-[16px]
           leading-[20px]
-          mb-[25px]
-          relative
-          before:absolute
-          before:left-[-20px]
-          before:top-1/2
-          before:translate-y-[-50%]
-          before:content-['']
-          before:block
-          before:w-[10px]
-          before:h-[10px]
-          before:rounded-full
-          before:bg-transparent
-          before:border-2
-          before:border-solid
-          before:border-red
+          font-medium
+          mb-[15px]
+          list-item
         "
       >
         Номинал: {{ data.Nominal }}
       </li>
-      <li
-        class="
-          text-gray-list text-[18px]
-          leading-[20px]
-          relative
-          before:absolute
-          before:left-[-20px]
-          before:top-1/2
-          before:translate-y-[-50%]
-          before:content-['']
-          before:block
-          before:w-[10px]
-          before:h-[10px]
-          before:rounded-full
-          before:bg-transparent
-          before:border-2
-          before:border-solid
-          before:border-red
-        "
-      >
+      <li class="text-list text-[16px] leading-[20px] font-medium list-item">
         Курс: {{ data.Value }}
       </li>
     </ul>
-    <slot></slot>
   </div>
 </template>
 
@@ -82,6 +60,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

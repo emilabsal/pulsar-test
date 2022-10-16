@@ -5,12 +5,16 @@
       py-[36px]
       px-[31px]
       bg-blue-background
-      items-center
+      xs:items-center
       flex
       gap-[33px]
+      xs:flex-row
+      flex-col
+      items-start
     "
   >
     <ui-icon
+      class="shrink-0"
       :name="icon"
       :width="iconWidth"
       :height="iconHeight"

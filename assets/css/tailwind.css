@@ -2,31 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
+  --color-black: #343434;
   --color-blue: #0F4471;
   --color-red: #E02025;
 }
 
-@layer base {
+@layer utilities {
   * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-  }
-
-  .nuxt-link-active {
-    @apply text-black
-  }
-
-  .grid-cols-custom {
-    grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
+    @apply m-0 p-0 box-border font-main
   }
 
   input[type="number"]::-webkit-inner-spin-button,
   input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+  }
+
+  .grid-cols-custom {
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  }
+
+  @media (max-width:992px) {
+    .grid-cols-custom {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+
+  .list-item {
+    position: relative;
+  }
+
+  .list-item::before {
+    display: block;
+    content: '';
+    position: absolute;
+    left: -20px; 
+    top: 50%;
+    transform: translateY(-50%) ;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--color-red);
   }
 }
