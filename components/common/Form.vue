@@ -57,12 +57,12 @@ export default {
   },
   computed: {
     valute() {
-      return this.$store.state.valute;
+      return this.$store.getters.valute;
     },
   },
   methods: {
     onCurrOne(value) {
-      this.curr1 = value;
+      this.curr1 = value.trim();
       this.code1 = this.valute.find(
         (el) => el.CharCode.toLowerCase() === this.curr1.toLowerCase()
       );
@@ -75,7 +75,7 @@ export default {
       this.countTotal();
     },
     onCurrTwo(value) {
-      this.curr2 = value;
+      this.curr2 = value.trim();
       this.code2 = this.valute.find(
         (el) => el.CharCode.toLowerCase() === this.curr2.toLowerCase()
       );

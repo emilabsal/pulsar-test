@@ -32,7 +32,7 @@ export default {
   },
   computed: {
     valute() {
-      return this.$store.state.valute;
+      return this.$store.getters.valute;
     },
   },
 };
