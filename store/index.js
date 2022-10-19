@@ -10,12 +10,10 @@ export const mutations = {
 
 export const actions = {
   async getValute({ commit }) {
-    await this.$axios
-      .get("https://www.cbr-xml-daily.ru/daily_json.js")
-      .then((res) => {
-        let data = Object.values(res.data.Valute);
-        commit("setValute", data);
-      });
+    await this.$axios.get("/daily_json.js").then((res) => {
+      let data = Object.values(res.data.Valute);
+      commit("setValute", data);
+    });
   },
 };
 
